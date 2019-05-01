@@ -1,0 +1,43 @@
+.pad-0 {
+	padding: 0px;
+}
+
+.intita-img {
+	border-radius: 5px;
+}
+
+.all-inf {
+    background-image: url(bg.png);
+}
+
+.text {
+	text-align: center;
+	height: 30px;
+}
+#inf {
+	text-align: left;
+}
+#information:hover ul {
+	color: #b94f74;
+}
+
+.contact {
+	background: #e8dfec;
+	border: 5px;
+	border-radius: 15px;
+}
+
+.qwe {
+	font-weight: 100%;
+}
+
+.networks {
+	height: 150px;
+	background: #f2dfe5;
+}
+
+
+
+
+
+
