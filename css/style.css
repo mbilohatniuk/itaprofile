@@ -12,7 +12,7 @@
 
 .text {
 	text-align: center;
-	height: 30px;
+	height: 35px;
 }
 #inf {
 	text-align: left;
@@ -21,19 +21,34 @@
 	color: #b94f74;
 }
 
-.contact {
-	background: #e8dfec;
-	border: 5px;
-	border-radius: 15px;
+#modules{
+    cursor: default;
 }
 
-.qwe {
-	font-weight: 100%;
+#modules ul{
+    display: none;
+}
+
+#modules li{
+    list-style: none;
+    cursor: default;
+}
+
+#modules ul.visible{
+    display: block;
+}
+
+div #location span{
+    color: #5465a6;
+}
+
+#courses {
+	text-align: left;
 }
 
 .networks {
 	height: 150px;
-	background: #f2dfe5;
+	background-color: #f2dfe5;
 }
 
 

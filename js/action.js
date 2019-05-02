@@ -19,42 +19,51 @@ var API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImRkZjBmOGI5ZDkwMzRiY
 });
 
   client.getUserCoursesAndModules(function (error, data) {
+    console.log(error, data);
 
-  var element= data.courses[0].id;
-  var content= document.getElementById("information");
-  document.getElementById("course").innerHTML += data.courses[0].title;
-    
-    client.getCourseModules(element, function (error, data) {
-      
+    document.getElementById('courses').innerText = data.courses[0].title;
+    var courseID = data.courses[0].id;
+
+    client.getCourseInfo(courseID, function (error, data) {
+
+        var infoEl = document.getElementById('infocourse');
         
-        data.forEach(function(oneOfTheModules){
-            
-            var modul = document.createElement("div");
-            var allLectures= document.createElement("ul");
-           
-            allLectures.style.display= "none";
-             modul.onclick = function(){
-               allLectures.style.display=="none"? allLectures.style.display="block": allLectures.style.display="none";
-        }
+    });
 
-        modul.innerHTML += oneOfTheModules.title;
-        content.appendChild(modul);
-        modul.appendChild(allLectures);
-            
-            
-        client.getModuleLectures(oneOfTheModules.id, function(error, data2) {
-                console.log(oneOfTheModules.title, error, data2);
-                
-                data2.forEach(function(nameLecture){
-                    
-                    
-                var lecture = document.createElement("li");
-                        lecture.innerHTML =  nameLecture.title;
-                        allLectures.appendChild(lecture);
-                    });
+    client.getCourseModules(courseID, function (error, modules) {
+        console.log(courseID);
+        var mod = document.getElementById("modules");
+        modules.forEach(function (module) {
+            console.log(module);
+
+            var div = document.createElement("div");
+            div.innerText = module.title;
+            mod.appendChild(div);
+
+            var ul = document.createElement("ul");
+            div.appendChild(ul);
+
+
+            client.getModuleLectures(module.id,function (error,lectures) {
+                lectures.forEach(function (lectures) {
+
+                    var li = document.createElement("li");
+                    li.innerText = lectures.title;
+                    ul.appendChild(li);
+                });
+
+                div.onmouseout = function(){
+                    this.style.color = 'black';
+                };
+
+                div.onmouseover = function () {
+                    this.style.color = 'blue';
+                };
+
+                div.onclick = function() {
+                    ul.classList.toggle('visible');
+                };
             });
-            
-         });
+        });
     });
 });
- 
