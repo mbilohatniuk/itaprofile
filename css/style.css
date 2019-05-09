@@ -15,7 +15,7 @@
 	height: 35px;
 }
 #inf {
-	text-align: left;
+	text-align: center;
 }
 #information:hover ul {
 	color: #b94f74;
@@ -42,13 +42,14 @@ div #location span{
     color: #5465a6;
 }
 
-#courses {
-	text-align: left;
-}
 
 .networks {
 	height: 150px;
 	background-color: #f2dfe5;
+}
+
+.center-aling {
+	text-align: center;
 }
 
 
